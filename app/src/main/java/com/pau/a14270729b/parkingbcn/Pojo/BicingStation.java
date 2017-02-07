@@ -1,5 +1,7 @@
 package com.pau.a14270729b.parkingbcn.Pojo;
 
+import java.util.Arrays;
+
 /**
  * Created by 14270729b on 03/02/17.
  */
@@ -15,12 +17,12 @@ public class BicingStation {
     private short altitude;
     private short slots;
     private short bikes;
-    private short   nearbyStations;
+    private short []  nearbyStations;
     private boolean status;
 
     public BicingStation(){}
 
-    public BicingStation(short id, Tipo type, double latitude, double longitude, String streetName, short streetNumber, short altitude, short slots, short bikes, short nearbyStations, boolean status) {
+    public BicingStation(short id, Tipo type, double latitude, double longitude, String streetName, short streetNumber, short altitude, short slots, short bikes, short [] nearbyStations, boolean status) {
         this.id = id;
         this.type = type;
         this.latitude = latitude;
@@ -106,11 +108,11 @@ public class BicingStation {
         this.bikes = bikes;
     }
 
-    public short getNearbyStations() {
+    public short [] getNearbyStations() {
         return nearbyStations;
     }
 
-    public void setNearbyStations(short nearbyStations) {
+    public void setNearbyStations(short [] nearbyStations) {
         this.nearbyStations = nearbyStations;
     }
 
@@ -134,11 +136,13 @@ public class BicingStation {
                 ", altitude=" + altitude +
                 ", slots=" + slots +
                 ", bikes=" + bikes +
-                ", nearbyStations=" + nearbyStations +
+                ", nearbyStations=" + Arrays.toString(nearbyStations) +
                 ", status=" + status +
                 '}';
     }
 }
+
+
 
 enum Tipo{
     BIKE, BIKEELECTRIC
